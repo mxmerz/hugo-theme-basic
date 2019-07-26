@@ -6,7 +6,6 @@
   itemtype="http://schema.org/Article"
 >
   {{ $baseurl := .Site.BaseURL }}
-  <span class="b">/ </span>
   <a
     href="{{ .Site.BaseURL  }}"
     class="b bb bw1 pb1 no-underline black"
@@ -29,6 +28,7 @@
 
   <section id="main" class="mt5">
     <h1 itemprop="name" id="title">{{ .Title }}</h1>
+    <p class="f6 fw3">{{ .Date }}</p>
 
     <article itemprop="articleBody" id="content" class="w-90 lh-copy">
       {{ .Content }}
