@@ -40,9 +40,26 @@
           <!-- pages -->
           <!-- prettier-ignore -->
           {{ range .Site.Params.menu }}
-          <li class="b mv3">
-            <a class="f3 b pa1 black" href="{{ .url }}">{{ .name }}</a>
-          </li>
+            <li class="mv3">
+              {{ .pre | safeHTML }}
+              {{ if .url }}
+                <a class="f3 b pa1 black" href="{{ .url }}">{{ .name }}</a>
+              {{ else }}
+                <span class="f3 pa1 black">{{ .name }}</span>
+              {{ end }}
+              {{ .post | safeHTML }}
+            </li>
+            {{ if .HasChildren }}
+              <ul class="sub-menu">
+                {{ range .Children }}
+                  <li class="b mv3 ml3">
+                    {{ .pre | safeHTML }}
+                    <a class="f3 b pa1 black" href="{{ .url }}">{{ .name }}</a>
+                    {{ .post | safeHTML }}
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
           <!-- prettier-ignore -->
           {{ end }}
         </ul>
