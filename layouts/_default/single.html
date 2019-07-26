@@ -12,6 +12,20 @@
     class="b bb bw1 pb1 no-underline black"
     >{{ .Site.Title }}</a
   >
+  {{ if .Section }}
+    <span class="b">/ </span>
+    <a
+      href="{{ .Site.BaseURL  }}/{{ .Section  }}"
+      class="b bb bw1 pb1 no-underline black"
+      >{{ .Section }}</a
+    >
+  {{ end }}
+  <span class="b">/ </span>
+  <a
+    href="{{ .Page.Permalink  }}"
+    class="b bb bw1 pb1 no-underline black"
+    >{{ .Page.Title }}</a
+  >
 
   <section id="main" class="mt5">
     <h1 itemprop="name" id="title">{{ .Title }}</h1>
