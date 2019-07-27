@@ -3,15 +3,17 @@
   lang="{{ .Site.LanguageCode }}"
   class="sans-serif w-90 w-60-ns center center-ns mv2 mv5-ns"
 >
-  <span class="b">/ </span>
-  <a
-    href="{{ .Site.BaseURL  }}"
-    class="b bw1 bb pb1 no-underline black"
-    >{{ .Site.Title }}</a
-  >
-  <span class="b"> / </span>
-  <!-- prettier-ignore -->
-  <span class="b pb1 no-underline black">{{ lower .Title }}</span>
+  <div class="breadcrumbs">
+    <span class="b">/ </span>
+    <a
+      href="{{ .Site.BaseURL  }}"
+      class="b bw1 bb pb1 no-underline black"
+      >{{ .Site.Title }}</a
+    >
+    <span class="b breadcrumbs"> / </span>
+    <!-- prettier-ignore -->
+    <span class="b pb1 no-underline black">{{ lower .Title }}</span>
+  </div>
 
   <section id="main" class="mt5">
     <div>

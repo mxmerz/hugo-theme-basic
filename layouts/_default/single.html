@@ -6,25 +6,27 @@
   itemtype="http://schema.org/Article"
 >
   {{ $baseurl := .Site.BaseURL }}
-  <a
-    href="{{ .Site.BaseURL  }}"
-    class="b bb bw1 pb1 no-underline black"
-    >{{ .Site.Title }}</a
-  >
-  {{ if .Section }}
-    <span class="b">/ </span>
+  <div class="breadcrumbs">
     <a
-      href="{{ .Site.BaseURL  }}/{{ .Section  }}"
+      href="{{ .Site.BaseURL  }}"
       class="b bb bw1 pb1 no-underline black"
-      >{{ .Section }}</a
+      >{{ .Site.Title }}</a
     >
-  {{ end }}
-  <span class="b">/ </span>
-  <a
-    href="{{ .Page.Permalink  }}"
-    class="b bb bw1 pb1 no-underline black"
-    >{{ .Page.Title }}</a
-  >
+    {{ if .Section }}
+      <span class="b">/ </span>
+      <a
+        href="{{ .Site.BaseURL  }}/{{ .Section  }}"
+        class="bb bw1 pb1 no-underline black"
+        >{{ .Section }}</a
+      >
+    {{ end }}
+    <span class="">/ </span>
+    <a
+      href="{{ .Page.Permalink  }}"
+      class="bb bw1 pb1 no-underline black"
+      >{{ .Page.Title }}</a
+    >
+  </div>
 
   <section id="main" class="mt5">
     <h1 itemprop="name" id="title">{{ .Title }}</h1>

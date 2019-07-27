@@ -26,11 +26,14 @@
     lang="{{ .Site.LanguageCode }}"
     class="sans-serif w-90 w-60-ns center center-ns mv2 mv5-ns"
   >
-      <a
-        href="{{ .Site.BaseURL  }}"
-        class="b bb bw1 pb1 no-underline black"
-        >{{ .Site.Title }}</a
-      >
+      <div class="breadcrumbs">
+        <a
+          href="{{ .Site.BaseURL  }}"
+          class="b bb bw1 pb1 no-underline black"
+          >{{ .Site.Title }}</a
+        >
+      </div>
+
       <section id="main" class="mt5">
       <div>
         <!-- <h1 id="title" class="f3">
