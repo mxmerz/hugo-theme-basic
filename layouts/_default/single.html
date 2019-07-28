@@ -30,7 +30,10 @@
 
   <section id="main" class="mt5">
     <h1 itemprop="name" id="title">{{ .Title }}</h1>
-    <p class="f6 fw3">{{ .Date }}</p>
+    <p class="f6 fw4 text-muted">
+      {{ $timestamp := .Date.Format "15:04" }}
+      <strong>{{ .Date.Format "2006-01-02" }}</strong>
+      {{ if ne $timestamp "00:00" }} – <span>{{ .Date.Format "15:04" }} {{ .Date.Format "MST" }}</span>{{ end }}</p>
 
     <article itemprop="articleBody" id="content" class="w-90 lh-copy">
       {{ .Content }}

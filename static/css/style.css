@@ -32,3 +32,8 @@ code {
 .breadcrumbs {
   line-height: 2rem;
 }
+
+/* .text-muted copied from getbootstrap.com */
+.text-muted {
+	color:#6c757d !important;
+}
