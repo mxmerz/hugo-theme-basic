@@ -33,11 +33,25 @@
     <p class="f6 fw4 text-muted">
       {{ $timestamp := .Date.Format "15:04" }}
       <strong>{{ .Date.Format "2006-01-02" }}</strong>
-      {{ if ne $timestamp "00:00" }} – <span>{{ .Date.Format "15:04" }} {{ .Date.Format "MST" }}</span>{{ end }}</p>
+      {{ if ne $timestamp "00:00" }} – <span>{{ .Date.Format "15:04" }} {{ .Date.Format "MST" }}</span>{{ end }}
+    </p>
 
     <article itemprop="articleBody" id="content" class="w-90 lh-copy">
       {{ .Content }}
     </article>
+
+    {{ $taxo := "categories" }} <!-- Use the plural form here -->
+    {{ with .Param $taxo }}
+      <p class="f6 fw4 text-muted">
+        {{ if gt (len .) 1 }}Categories{{ else }}Category{{ end }}:
+        {{ range $index, $category := . }}
+            {{- if gt $index 0 }}, {{ end -}}
+            {{ with $.Site.GetPage (printf "/%s/%s" $taxo $category) -}}
+                <strong><a class="text-muted" href="{{ .Permalink }}">{{ $category }}</a></strong>
+            {{- end -}}
+        {{- end -}}
+      </p>
+    {{ end }}
   </section>
 
   {{ partial "footer.html" . }}
